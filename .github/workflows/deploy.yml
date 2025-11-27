@@ -3,29 +3,55 @@ name: demostracion_ci
 on:
   push:
     branches:
-      - main  # Se ejecuta cuando hagas push a main
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'   # Node recomendado para React
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
 
+      - name: Run tests
+        run: npm test --if-present
+
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload production-ready build
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          name: build
+          path: build/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
