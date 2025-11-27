@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Aqui se prueba la nyeva rama y el pull
+          Aqui realizo un cambio nuevo
         </p>
         <a
           className="App-link"
