@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={labubu-face} className="App-logo" alt="logo" />
         <p>
-       Vamos a cambiar esto
+       Te quiero mucho labubu
         </p>
         <a
           className="App-link"
