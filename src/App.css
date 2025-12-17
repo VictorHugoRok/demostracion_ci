@@ -26,6 +26,7 @@
 
 .App-link {
   color: #61dafb;
+  margin-top: 20px;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +36,108 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* CRUD Container */
+.crud-container {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* CREATE - Formulario */
+.create-form {
+  margin-bottom: 20px;
+}
+
+.create-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #4fa8c5;
+}
+
+/* READ - Lista de items */
+.items-list {
+  text-align: left;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+}
+
+.item-card {
+  background: #1e2127;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #3a3f4b;
+}
+
+.item-text {
+  flex: 1;
+}
+
+/* UPDATE - Modo edición */
+.edit-input {
+  padding: 5px;
+  font-size: 16px;
+  flex: 1;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Botones */
+.btn {
+  padding: 5px 15px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-edit {
+  background: #2196F3;
+}
+
+.btn-save {
+  background: #4CAF50;
+}
+
+.btn-cancel {
+  background: #888;
+}
+
+.btn-delete {
+  background: #f44336;
 }
